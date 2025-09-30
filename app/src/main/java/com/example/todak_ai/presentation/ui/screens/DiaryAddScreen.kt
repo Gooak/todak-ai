@@ -65,7 +65,7 @@ import androidx.navigation.NavHostController
 import com.example.todak_ai.domain.enum.MoodType
 import com.example.todak_ai.domain.enum.WeatherType
 import com.example.todak_ai.presentation.ui.components.LinedDiaryTextField
-import com.example.todak_ai.presentation.viewmodel.DiaryViewModel
+import com.example.todak_ai.presentation.viewmodel.DiaryAddViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import java.time.LocalDate
@@ -74,12 +74,8 @@ import java.time.format.DateTimeFormatter
 @OptIn(ExperimentalMaterial3Api::class)
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
-fun DiaryAddScreen(navController: NavHostController, parentRoute : String) {
-
-    val parentEntry = remember(navController.currentBackStackEntry) {
-        navController.getBackStackEntry(parentRoute)
-    }
-    val diaryViewModel: DiaryViewModel = hiltViewModel(parentEntry)
+fun DiaryAddScreen(navController: NavHostController) {
+    val diaryViewModel: DiaryAddViewModel = hiltViewModel()
 
     val scrollState = rememberScrollState()
     val coroutineScope = rememberCoroutineScope()

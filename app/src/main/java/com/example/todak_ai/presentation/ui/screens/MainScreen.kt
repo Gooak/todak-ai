@@ -37,22 +37,17 @@ fun MainScreen() {
     ) { interPadding ->
         NavHost(
             navController = navController,
-            startDestination = "diary_flow",
+            startDestination = BottomMenus.DIARY.name,
             modifier = Modifier
                 .padding(interPadding)
                 .background(Color.White)
                 .fillMaxSize()
         ) {
-            navigation(
-                startDestination = BottomMenus.DIARY.name,
-                route = "diary_flow"
-            ) {
-                composable(BottomMenus.DIARY.name) { backStackEntry ->
-                    DiaryListScreen(navController, "diary_flow")
-                }
-                composable("DiaryAddScreen") { backStackEntry ->
-                    DiaryAddScreen(navController, "diary_flow")
-                }
+            composable(BottomMenus.DIARY.name) { backStackEntry ->
+                DiaryListScreen(navController)
+            }
+            composable("DiaryAddScreen") { backStackEntry ->
+                DiaryAddScreen(navController)
             }
             composable(BottomMenus.STATISTICS.name) { backStackEntry ->
                 StatisticsScreen()
