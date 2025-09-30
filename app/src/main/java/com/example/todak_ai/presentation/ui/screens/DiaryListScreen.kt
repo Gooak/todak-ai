@@ -1,5 +1,6 @@
 package com.example.todak_ai.presentation.ui.screens
 
+import SwipeableActionsBox
 import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.compose.animation.AnimatedVisibility
@@ -25,6 +26,8 @@ import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material.icons.filled.KeyboardArrowUp
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Divider
@@ -53,10 +56,12 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.navigation.NavController
 import com.example.todak_ai.R
+import com.example.todak_ai.presentation.ui.components.EmptyMessage
 import java.time.format.DateTimeFormatter
+
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
-fun DiaryListScreen(navController: NavController, parentRoute : String) {
+fun DiaryListScreen(navController: NavController, parentRoute: String) {
 
     val parentEntry = remember(navController.currentBackStackEntry) {
         navController.getBackStackEntry(parentRoute)
@@ -82,7 +87,7 @@ fun DiaryListScreen(navController: NavController, parentRoute : String) {
             modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding)
-                .padding(horizontal = 16.dp),
+                .padding(horizontal = 15.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = if (diaryList.isEmpty()) Arrangement.Center else Arrangement.Top
         ) {
@@ -95,25 +100,39 @@ fun DiaryListScreen(navController: NavController, parentRoute : String) {
                         horizontalAlignment = Alignment.CenterHorizontally,
                         verticalArrangement = Arrangement.Center
                     ) {
-                        Image(
-                            painter = painterResource(id = R.drawable.ic_diary_book),
-                            contentDescription = "일기 없음",
-                            modifier = Modifier.size(120.dp).alpha(0.5f)
-                        )
-                        Spacer(modifier = Modifier.height(16.dp))
-                        Text(
-                            text = "아직 작성된 일기가 없어요. 😌\n새 일기를 작성하여 당신의 이야기를 들려주세요!",
-                            style = MaterialTheme.typography.bodyLarge.copy(
-                                textAlign = TextAlign.Center
-                            ),
-                            color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.7f)
-                        )
+                        EmptyMessage(modifier = Modifier.fillParentMaxSize())
                     }
                 }
             } else {
                 items(diaryList.size) { index ->
-                    ExpansionTail(diary = diaryList[index], onDelete = {
-                        diaryViewModel.deleteDiary(diaryList[index])
+                    SwipeableActionsBox(endActions = {
+                        Button(
+                            onClick = { diaryViewModel.deleteDiary(diaryList[index]) },
+                            colors = ButtonDefaults.buttonColors(
+                                containerColor = MaterialTheme.colorScheme.errorContainer
+                            ),
+                            shape = MaterialTheme.shapes.small,
+                            modifier = Modifier.padding(top = 10.dp)
+                        ) {
+                            Column {
+                                Icon(
+                                    Icons.Default.Delete,
+                                    contentDescription = "삭제",
+                                    tint = MaterialTheme.colorScheme.onErrorContainer
+                                )
+                                Text(
+                                    text = "삭제",
+                                    color = MaterialTheme.colorScheme.onErrorContainer,
+                                    style = MaterialTheme.typography.labelSmall
+                                )
+
+                            }
+                        }
+                    }, content = {
+                        ExpansionTail(
+                            diary = diaryList[index],
+                        )
+                        Spacer(modifier = Modifier.height(8.dp))
                     })
                     Spacer(modifier = Modifier.height(8.dp)) // 아이템 간 간격
                 }
@@ -125,25 +144,23 @@ fun DiaryListScreen(navController: NavController, parentRoute : String) {
 
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
-fun ExpansionTail(diary: DiaryModel, onDelete : () -> Unit) {
+fun ExpansionTail(diary: DiaryModel) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
             .padding(vertical = 4.dp),
-        elevation = CardDefaults.cardElevation(defaultElevation = 1.dp),
+        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
         shape = MaterialTheme.shapes.medium
     ) {
         Column {
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .clickable {
-                        diary.isExpanded.value = !diary.isExpanded.value
-                    }
-                    .padding(vertical = 12.dp, horizontal = 16.dp),
+            Row(modifier = Modifier
+                .fillMaxWidth()
+                .clickable {
+                    diary.isExpanded.value = !diary.isExpanded.value
+                }
+                .padding(vertical = 12.dp, horizontal = 16.dp),
                 verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.SpaceBetween
-            ) {
+                horizontalArrangement = Arrangement.SpaceBetween) {
                 Column(Modifier.weight(1f)) {
                     Text(
                         text = diary.diaryDate.format(DateTimeFormatter.ofPattern("yyyy.MM.dd")), // 날짜 형식 변경
@@ -166,16 +183,22 @@ fun ExpansionTail(diary: DiaryModel, onDelete : () -> Unit) {
                     Image(
                         painter = painterResource(id = diary.diaryWeather.iconRes),
                         contentDescription = diary.diaryWeather.name,
-                        modifier = Modifier.size(28.dp).alpha(0.8f).background(Color.White, shape = MaterialTheme.shapes.extraLarge)
+                        modifier = Modifier
+                            .size(28.dp)
+                            .alpha(0.8f)
+                            .background(Color.White, shape = MaterialTheme.shapes.extraLarge)
                     )
                     Image( // MoodType도 Image로 변경
                         painter = painterResource(id = diary.diaryMood.iconRes),
                         contentDescription = diary.diaryMood.description,
-                        modifier = Modifier.size(28.dp).alpha(0.8f).background(Color.White, shape = MaterialTheme.shapes.extraLarge)
+                        modifier = Modifier
+                            .size(28.dp)
+                            .alpha(0.8f)
+                            .background(Color.White, shape = MaterialTheme.shapes.extraLarge)
                     )
                     Icon(
                         imageVector = if (diary.isExpanded.value) Icons.Filled.KeyboardArrowUp else Icons.Filled.KeyboardArrowDown,
-                        contentDescription = if (diary.isExpanded.value ) "접기" else "펼치기",
+                        contentDescription = if (diary.isExpanded.value) "접기" else "펼치기",
                         modifier = Modifier.size(28.dp),
                         tint = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f)
                     )
@@ -215,21 +238,6 @@ fun ExpansionTail(diary: DiaryModel, onDelete : () -> Unit) {
                             style = MaterialTheme.typography.bodySmall, // AI 답변은 본문보다 작은 폰트
                             color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f)
                         )
-                    }
-
-                    Spacer(modifier = Modifier.height(8.dp))
-
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.End // 버튼을 오른쪽으로 정렬
-                    ) {
-                        IconButton(onClick = onDelete) { // 파라미터로 받은 onDelete 호출
-                            Icon(
-                                imageVector = Icons.Default.Delete,
-                                contentDescription = "삭제하기",
-                                tint = MaterialTheme.colorScheme.error
-                            )
-                        }
                     }
                 }
             }
