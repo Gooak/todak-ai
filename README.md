@@ -17,9 +17,7 @@
 
 ## ▶️ 시연 영상 (Demo Video)
 
-아래 이미지를 클릭하시면 프로젝트 시연 영상을 보실 수 있습니다.
-
-![recording (1)](https://github.com/user-attachments/assets/3fb81a4b-60af-4c18-9dfa-5af6b05a723f)
+https://github.com/user-attachments/assets/201efcf3-3f5c-4ed2-a8b2-067e28d58d80
 
 ---
 
