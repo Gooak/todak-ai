@@ -62,8 +62,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.navigation.NavHostController
-import com.example.today_diary_ai.enum.MoodType
-import com.example.today_diary_ai.enum.WeatherType
+import com.example.today_diary_ai.domain.enum.MoodType
+import com.example.today_diary_ai.domain.enum.WeatherType
 import com.example.today_diary_ai.presentation.ui.components.LinedDiaryTextField
 import com.example.today_diary_ai.presentation.viewmodel.DiaryViewModel
 import kotlinx.coroutines.delay

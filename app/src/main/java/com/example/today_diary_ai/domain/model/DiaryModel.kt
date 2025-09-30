@@ -1,13 +1,10 @@
 package com.example.today_diary_ai.domain.model
 
 import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.setValue
 import com.example.today_diary_ai.data.local.entity.DiaryEntity
-import com.example.today_diary_ai.enum.MoodType
-import com.example.today_diary_ai.enum.WeatherType
-import kotlinx.coroutines.flow.MutableStateFlow
+import com.example.today_diary_ai.domain.enum.MoodType
+import com.example.today_diary_ai.domain.enum.WeatherType
 import java.time.LocalDate
 
 data class DiaryModel(

@@ -1,4 +1,4 @@
-package com.example.today_diary_ai.enum
+package com.example.today_diary_ai.domain.enum
 
 import androidx.compose.ui.graphics.Color
 import com.example.today_diary_ai.R

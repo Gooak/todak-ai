@@ -3,8 +3,8 @@ package com.example.today_diary_ai.data.local.entity
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.example.today_diary_ai.domain.model.DiaryModel
-import com.example.today_diary_ai.enum.MoodType
-import com.example.today_diary_ai.enum.WeatherType
+import com.example.today_diary_ai.domain.enum.MoodType
+import com.example.today_diary_ai.domain.enum.WeatherType
 import java.time.LocalDate
 
 @Entity

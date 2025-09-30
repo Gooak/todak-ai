@@ -7,8 +7,8 @@ import androidx.lifecycle.viewModelScope
 import com.example.today_diary_ai.domain.model.DiaryModel
 import com.example.today_diary_ai.domain.usecase.DiaryUseCase
 import com.example.today_diary_ai.domain.usecase.GeminiUseCase
-import com.example.today_diary_ai.enum.MoodType
-import com.example.today_diary_ai.enum.WeatherType
+import com.example.today_diary_ai.domain.enum.MoodType
+import com.example.today_diary_ai.domain.enum.WeatherType
 import dagger.hilt.android.lifecycle.HiltViewModel
 import jakarta.inject.Inject
 import kotlinx.coroutines.flow.MutableStateFlow

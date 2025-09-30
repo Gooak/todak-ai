@@ -4,8 +4,8 @@ import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.room.ProvidedTypeConverter
 import androidx.room.TypeConverter
-import com.example.today_diary_ai.enum.MoodType
-import com.example.today_diary_ai.enum.WeatherType
+import com.example.today_diary_ai.domain.enum.MoodType
+import com.example.today_diary_ai.domain.enum.WeatherType
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
