@@ -1,3 +1,5 @@
+
+https://github.com/user-attachments/assets/dfa0c02c-4143-400a-a8f3-95f8f76a5703
 # 토닥토닥 🖋️✨
 
 **AI가 당신의 지친 하루를 토닥여주는 따뜻한 감성 일기장**
@@ -10,7 +12,7 @@
 
 | 일기 목록 | 일기 작성 | 통계 화면 | 시연 영상 |
 | :---: | :---: | :---: | :---: | 
-| <img width="216" height="384" alt="Screenshot_20250930_235754" src="https://github.com/user-attachments/assets/9bab24d7-af3a-423a-9ab8-9ae0923268c7" /> | <img width="216" height="384" alt="Screenshot_20250930_235834" src="https://github.com/user-attachments/assets/6beae41e-b108-4657-8284-fa12d45fc97c" /> | <img width="216" height="384" alt="Screenshot_20250930_235820" src="https://github.com/user-attachments/assets/c7823844-24ad-4fea-a6ac-10506a9ade15" /> | <img width="216" height="384" alt="recording" src="https://github.com/user-attachments/assets/2342ba43-e063-4f82-a9ab-577b498d40ea" /> |
+| <img width="216" height="384" alt="Screenshot_20250930_235754" src="https://github.com/user-attachments/assets/9bab24d7-af3a-423a-9ab8-9ae0923268c7" /> | <img width="216" height="384" alt="Screenshot_20250930_235834" src="https://github.com/user-attachments/assets/6beae41e-b108-4657-8284-fa12d45fc97c" /> | <img width="216" height="384" alt="Screenshot_20250930_235820" src="https://github.com/user-attachments/assets/c7823844-24ad-4fea-a6ac-10506a9ade15" /> | https://github.com/user-attachments/assets/d43c995a-3454-4cac-b46e-7f6558361702 |
 
 ## ✨ 주요 기능 (Features)
 
