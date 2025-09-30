@@ -52,7 +52,7 @@
 ## 📁 파일 구조 (Directory Structure)
 
 프로젝트는 Clean Architecture의 3계층 구조를 기반으로 구성되어 있습니다.
-
+```
 .
 └── app/src/main/java
 └── com/example/yourapp
@@ -75,3 +75,4 @@
 │   └── 📂 navigation  (Navigation 그래프)
 │
 └── 📂 di               (Hilt 의존성 주입 모듈)
+```
