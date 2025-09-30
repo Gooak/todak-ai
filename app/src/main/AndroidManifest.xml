@@ -10,7 +10,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
     <application
-        android:name="com.example.today_diary_ai.core.TaskApplication"
+        android:name="com.example.todak_ai.core.TaskApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -20,7 +20,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Sounddiary">
         <activity
-            android:name="com.example.today_diary_ai.presentation.MainActivity"
+            android:name="com.example.todak_ai.presentation.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.Sounddiary">
             <intent-filter>

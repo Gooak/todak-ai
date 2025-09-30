@@ -18,10 +18,10 @@ plugins {
 }
 
 android {
-    namespace = "com.example.today_diary_ai"
+    namespace = "com.example.todak_ai"
     compileSdk = 36
     defaultConfig {
-        applicationId = "com.example.today_diary_ai"
+        applicationId = "com.example.todak_ai"
         minSdk = 24
         targetSdk = 36
         versionCode = 1
