@@ -40,7 +40,7 @@ fun StatisticsScreen() {
         LazyColumn(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(innerPadding)
+                .padding(innerPadding),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             if (totalDiaryCount == 0) {
