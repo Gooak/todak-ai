@@ -10,7 +10,8 @@
 
 | 일기 목록 | 통계 화면 |
 | :---: | :---: |
-| ![일기 목록 화면](https://via.placeholder.com/300x600.png?text=Diary+List+Screen) | ![통계 화면](https://via.placeholder.com/300x600.png?text=Statistics+Screen) |
+| <img width="1080" height="1920" alt="Screenshot_20250930_235754" src="https://github.com/user-attachments/assets/9bab24d7-af3a-423a-9ab8-9ae0923268c7" /> | ![통계 화면](https://via.placeholder.com/300x600.png?text=Statistics+Screen) |
+
 
 ---
 
