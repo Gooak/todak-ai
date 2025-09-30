@@ -87,8 +87,7 @@ fun DiaryListScreen(navController: NavController) {
                 item {
                     Column(
                         modifier = Modifier
-                            .fillParentMaxSize()
-                            .padding(bottom = 80.dp),
+                            .fillParentMaxSize(),
                         horizontalAlignment = Alignment.CenterHorizontally,
                         verticalArrangement = Arrangement.Center
                     ) {
@@ -128,7 +127,6 @@ fun DiaryListScreen(navController: NavController) {
                             )
                             Spacer(modifier = Modifier.height(8.dp))
                         })
-                    Spacer(modifier = Modifier.height(8.dp)) // 아이템 간 간격
                 }
             }
         }

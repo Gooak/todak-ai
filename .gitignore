@@ -13,3 +13,4 @@
 .externalNativeBuild
 .cxx
 local.properties
+./todak.ai.keystore.jks
