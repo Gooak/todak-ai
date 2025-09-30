@@ -1,5 +1,8 @@
+import java.io.FileInputStream
+import java.util.Properties
+
 plugins {
-    
+
     // Android & Kotlin Plugins
     alias(libs.plugins.android.application)   // Android Application
     alias(libs.plugins.kotlin.android)        // Kotlin Android
@@ -17,7 +20,6 @@ plugins {
 android {
     namespace = "com.example.today_diary_ai"
     compileSdk = 36
-
     defaultConfig {
         applicationId = "com.example.today_diary_ai"
         minSdk = 24
@@ -26,6 +28,16 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+
+        val properties = Properties()
+        properties.load(FileInputStream(rootProject.file("local.properties")))
+
+        buildConfigField(
+            "String",
+            "GEMINI_API_KEY",
+            "${properties.getProperty("GEMINI_API_KEY")}"
+        )
     }
 
     buildTypes {
@@ -46,6 +58,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true // BuildConfig 클래스 생성
     }
 }
 
@@ -53,18 +66,19 @@ dependencies {
 
     // Compose BOM
     implementation(platform(libs.androidx.compose.bom))
-    
+
     // Core & Lifecycle
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
-    
+
     // Jetpack Compose UI
     implementation(libs.androidx.compose.ui)
     implementation(libs.androidx.compose.ui.graphics)
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
-    
+    implementation(libs.androidx.compose.material.icons.extended)
+
     // Room (Database)
     implementation(libs.androidx.room.common.jvm)
     implementation(libs.androidx.room.ktx)
@@ -98,9 +112,9 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
 
-    // Vico Compose
-    implementation(libs.vico.compose)
-
     //permission
     implementation(libs.accompanist.permissions)
+
+    //gemini
+    implementation(libs.google.ai.generativeai)
 }

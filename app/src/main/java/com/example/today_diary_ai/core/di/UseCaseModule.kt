@@ -1,9 +1,9 @@
 package com.example.today_diary_ai.core.di
 
-import com.example.today_diary_ai.domain.repository.SettingRepository
 import com.example.today_diary_ai.domain.repository.DiaryRepository
-import com.example.today_diary_ai.domain.usecase.SettingUseCase
+import com.example.today_diary_ai.domain.repository.GeminiRepository
 import com.example.today_diary_ai.domain.usecase.DiaryUseCase
+import com.example.today_diary_ai.domain.usecase.GeminiUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -14,12 +14,12 @@ import dagger.hilt.components.SingletonComponent
 object UseCaseModule {
 
     @Provides
-    fun provideSettingUseCase(repository: SettingRepository): SettingUseCase {
-        return SettingUseCase(repository)
+    fun provideDiaryUseCase(repository: DiaryRepository): DiaryUseCase {
+        return DiaryUseCase(repository)
     }
 
     @Provides
-    fun provideSoundUseCase(repository: DiaryRepository): DiaryUseCase {
-        return DiaryUseCase(repository)
+    fun provideGeminiUseCase(repository: GeminiRepository): GeminiUseCase {
+        return GeminiUseCase(repository)
     }
 }

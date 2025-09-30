@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface DiaryDao {
 
-    @Query("SELECT * FROM DiaryEntity ORDER BY diaryDate DESC")
+    @Query("SELECT * FROM DiaryEntity ORDER BY diaryId DESC")
     fun getAllDiary(): Flow<List<DiaryEntity>>
 
     @Insert
