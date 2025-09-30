@@ -13,9 +13,15 @@
 | :---: | :---: | :---: |
 | <img width="216" height="384" alt="Screenshot_20250930_235754" src="https://github.com/user-attachments/assets/9bab24d7-af3a-423a-9ab8-9ae0923268c7" /> | <img width="216" height="384" alt="Screenshot_20250930_235834" src="https://github.com/user-attachments/assets/6beae41e-b108-4657-8284-fa12d45fc97c" /> | <img width="216" height="384" alt="Screenshot_20250930_235820" src="https://github.com/user-attachments/assets/c7823844-24ad-4fea-a6ac-10506a9ade15" /> |
 
-## 📸 시연 영상 (Screenshots)
+---
 
-https://github.com/user-attachments/assets/dfa0c02c-4143-400a-a8f3-95f8f76a5703
+## ▶️ 시연 영상 (Demo Video)
+
+아래 이미지를 클릭하시면 프로젝트 시연 영상을 보실 수 있습니다.
+
+![recording (1)](https://github.com/user-attachments/assets/3fb81a4b-60af-4c18-9dfa-5af6b05a723f)
+
+---
 
 ## ✨ 주요 기능 (Features)
 
