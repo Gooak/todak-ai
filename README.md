@@ -1,50 +1,77 @@
-# Today Diary AI 프로젝트 구조
+# 토닥토닥 🖋️✨
 
-이 문서는 Today Diary AI 프로젝트의 전반적인 구조를 설명합니다.
+**AI가 당신의 지친 하루를 토닥여주는 따뜻한 감성 일기장**
 
-## 루트 디렉토리
+나의 하루와 감정, 그리고 날씨를 기록하면, Gemini AI가 따뜻한 공감의 메시지를 전해주는 모바일 일기 앱입니다. 파스텔 톤의 부드러운 디자인과 함께 오롯이 나에게 집중하는 시간을 선물합니다.
 
-프로젝트의 루트 디렉토리에는 다음 파일과 디렉토리가 포함되어 있습니다:
+---
 
-*   **app/**: 이 디렉토리에는 소스 코드, 리소스 및 AndroidManifest.xml을 포함한 메인 애플리케이션 모듈이 있습니다.
-*   **.idea/**: 이 디렉토리에는 Android Studio의 프로젝트별 설정이 저장됩니다.
-*   **gradle/**: 이 디렉토리에는 특정 버전의 Gradle로 프로젝트를 빌드할 수 있도록 하는 Gradle 래퍼 파일이 포함되어 있습니다.
-*   **gradlew**: macOS 및 Linux용 Gradle 래퍼 스크립트입니다.
-*   **gradlew.bat**: Windows용 Gradle 래퍼 스크립트입니다.
-*   **.gitignore**: 이 파일은 Git에서 무시해야 할 파일 및 디렉토리를 지정합니다.
-*   **build.gradle.kts**: 전체 프로젝트의 메인 빌드 스크립트입니다. 프로젝트 수준 빌드 설정을 구성합니다.
-*   **gradle.properties**: 이 파일은 Gradle 데몬의 JVM 인수와 같은 프로젝트 전체 Gradle 설정을 구성하는 데 사용됩니다.
-*   **settings.gradle.kts**: 이 스크립트는 메인 프로젝트의 일부인 서브 프로젝트를 포함합니다.
+## 📸 주요 화면 (Screenshots)
 
-이러한 기본 구조는 Android 프로젝트의 일반적인 형태입니다. 핵심 애플리케이션 코드는 `app` 디렉토리 내에 있습니다.
+| 일기 목록 | 통계 화면 |
+| :---: | :---: |
+| ![일기 목록 화면](https://via.placeholder.com/300x600.png?text=Diary+List+Screen) | ![통계 화면](https://via.placeholder.com/300x600.png?text=Statistics+Screen) |
 
-## app 디렉토리
+---
 
-`app` 디렉토리는 메인 애플리케이션 모듈이며, 다음과 같은 주요 구성 요소를 포함합니다:
+## ✨ 주요 기능 (Features)
 
-*   **src/**: 실제 소스 코드와 리소스 파일이 위치하는 디렉토리입니다. 일반적인 Android 프로젝트처럼 `main/java`, `main/res`, `androidTest/java` 등의 하위 디렉토리를 포함합니다.
-*   **.gitignore**: `app` 모듈 내에서 Git이 무시해야 할 파일을 지정합니다.
-*   **build.gradle.kts**: `app` 모듈의 빌드 스크립트입니다. 모듈 수준의 의존성, 플러그인, 빌드 설정 등을 정의합니다.
-*   **proguard-rules.pro**: ProGuard 설정을 정의하는 파일입니다. 코드 난독화 및 최적화 규칙을 지정하여 앱의 보안을 강화하고 크기를 줄이는 데 사용됩니다.
+* **📝 일기 작성**: 날짜, 제목, 내용과 함께 그날의 기분과 날씨를 기록할 수 있습니다.
+* **🤖 AI의 공감 답변**: 작성한 일기 내용과 기분을 바탕으로 Gemini AI가 따뜻한 공감의 메시지를 생성해 줍니다.
+* **🗑️ 스와이프하여 삭제**: 부드러운 스와이프 제스처로 일기를 편리하게 삭제할 수 있습니다.
+* **📊 통계 시각화**: 기록된 기분과 날씨 데이터를 원형 그래프로 한눈에 파악할 수 있습니다.
+* **🎨 감성적인 UI/UX**: Jetpack Compose와 Material 3 기반의 파스텔 톤 디자인을 적용했습니다.
 
-## 소스 코드 구조 (`app/src/main/java/com/example/today_diary_ai`)
+---
 
-애플리케이션의 주요 소스 코드는 `com.example.today_diary_ai` 패키지 내에 다음과 같은 계층형 구조로 구성되어 있습니다. 이는 **클린 아키텍처(Clean Architecture)** 또는 유사한 계층형 접근 방식을 따르는 것으로 보입니다.
+## 🛠️ 기술 스택 및 아키텍처 (Tech Stack & Architecture)
 
-*   **core/**: 애플리케이션 전반에 사용되는 핵심 유틸리티 및 기반 코드를 포함합니다. 예를 들어, 의존성 주입(DI) 설정, 네트워크 모듈, 데이터베이스 인스턴스 생성 등 프로젝트의 기반을 이루는 요소들이 위치할 수 있습니다.
-*   **data/**: 데이터 관리와 관련된 모든 로직을 담당합니다. 여기에는 다음이 포함될 수 있습니다:
-    *   **Repository 구현체**: `domain` 계층에 정의된 Repository 인터페이스의 실제 구현부입니다. 외부 API 통신, 로컬 데이터베이스 접근 등을 통해 데이터를 가져오거나 저장합니다.
-    *   **DataSource**: 원격 서버 API, 로컬 데이터베이스 등 실제 데이터 소스와의 상호작용을 담당합니다.
-    *   **DTO (Data Transfer Objects)** 또는 데이터 모델: API 응답이나 데이터베이스 스키마에 맞는 데이터 객체들입니다.
-*   **domain/**: 애플리케이션의 핵심 비즈니스 로직을 포함하며, 다른 계층에 독립적입니다. 주요 구성 요소는 다음과 같습니다:
-    *   **UseCase (또는 Interactor)**: 특정 비즈니스 기능을 캡슐화합니다. Presentation 계층의 요청을 받아 Data 계층의 Repository를 사용하여 작업을 수행합니다.
-    *   **Entity (또는 Model)**: 애플리케이션의 핵심 비즈니스 객체를 나타냅니다. 순수한 데이터 구조로, 특정 프레임워크나 라이브러리에 의존하지 않습니다.
-    *   **Repository 인터페이스**: Data 계층에서 구현될 데이터 접근에 대한 추상화된 계약(규약)을 정의합니다. Domain 계층은 이 인터페이스에만 의존합니다.
-*   **enum/**: 애플리케이션 전체에서 사용되는 `enum` (열거형) 타입을 모아둔 패키지입니다. 상태, 타입 등을 명확하게 정의하여 코드의 가독성과 안정성을 높입니다.
-*   **presentation/**: 사용자 인터페이스(UI) 및 사용자 상호작용과 관련된 모든 로직을 담당합니다. 주요 구성 요소는 다음과 같습니다:
-    *   **ViewModel (또는 Presenter)**: UI 상태를 관리하고, Domain 계층의 UseCase를 호출하여 비즈니스 로직을 실행합니다. UI는 ViewModel의 상태를 관찰하여 화면을 업데이트합니다.
-    *   **UI 컴포넌트**: Jetpack Compose의 Composable 함수, Activity, Fragment 등 사용자가 직접 보는 화면 요소들입니다.
-    *   **UI 이벤트 처리**: 사용자 입력 및 상호작용을 처리하고 ViewModel에 전달합니다.
-*   **util/**: 애플리케이션의 다양한 부분에서 재사용될 수 있는 유틸리티 클래스 및 확장 함수 등을 포함합니다. 예를 들어, 날짜/시간 변환, 문자열 조작, 로깅 유틸리티 등이 해당될 수 있습니다.
+이 프로젝트는 Android 앱 개발의 최신 트렌드를 따르고 있으며, 확장성과 유지보수성을 고려하여 설계되었습니다.
 
-이러한 구조는 각 계층의 역할을 명확히 분리하여 코드의 유지보수성, 테스트 용이성, 확장성을 높이는 것을 목표로 합니다.
+### 아키텍처 (Architecture)
+
+* **Modern App Architecture**: Google에서 권장하는 공식 아키텍처 가이드를 따릅니다.
+* **Clean Architecture**: Presentation - Domain - Data 3개의 계층으로 역할을 명확히 분리했습니다.
+* **MVVM (Model-View-ViewModel)**: Presentation Layer에서 UI와 비즈니스 로직을 분리하기 위해 사용합니다.
+* **Repository Pattern**: 데이터 소스를 추상화하여 데이터 접근 방식을 일원화합니다.
+* **UI Layer**: State Holder(ViewModel)를 사용하여 단방향 데이터 흐름(UDF)을 구현합니다.
+
+### 사용된 기술 (Tech Stack)
+
+* **Language**: Kotlin
+* **UI**: Jetpack Compose, Material 3
+* **Asynchronicity**: Kotlin Coroutines & Flow
+* **Architecture**: ViewModel, Lifecycle
+* **DI**: Hilt
+* **Navigation**: Navigation Compose
+* **AI**: Google Generative AI SDK (Gemini)
+* **Build**: Gradle (Kotlin DSL & TOML Version Catalog)
+
+---
+
+## 📁 파일 구조 (Directory Structure)
+
+프로젝트는 Clean Architecture의 3계층 구조를 기반으로 구성되어 있습니다.
+
+.
+└── app/src/main/java
+└── com/example/yourapp
+├── 📂 data
+│   ├── 📂 repository  (Repository 구현체)
+│   ├── 📂 local       (Room DB, Dao, Entity 등)
+│   └── 📂 remote      (Gemini API 관련)
+│
+├── 📂 domain
+│   ├── 📂 model        (UI에서 사용할 데이터 모델)
+│   ├── 📂 repository  (Repository 인터페이스)
+│   ├── 📂 usecase     (비즈니스 로직 캡슐화)
+│   └── 📂 enums       (MoodType, WeatherType 등)
+│
+├── 📂 presentation
+│   ├── 📂 ui
+│   │   ├── 📂 screens    (각 화면 Composable)
+│   │   └── 📂 components (재사용 가능한 Composable)
+│   ├── 📂 viewmodel   (ViewModel)
+│   └── 📂 navigation  (Navigation 그래프)
+│
+└── 📂 di               (Hilt 의존성 주입 모듈)
