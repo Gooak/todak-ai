@@ -15,9 +15,8 @@ class GeminiRepositoryImpl @Inject constructor() : GeminiRepository {
             val response = generativeModel.generateContent(prompt)
             response.text ?: "AI 답변을 생성하는 데 실패했습니다."
         } catch (e: Exception) {
-            // 예외 처리 (e.g., 네트워크 오류, API 키 오류 등)
             e.printStackTrace()
-            "오류가 발생했습니다: ${e.message}"
+            return "오류가 발생했습니다: 일시적인 서버 문제일 수 있습니다."
         }
     }
 }

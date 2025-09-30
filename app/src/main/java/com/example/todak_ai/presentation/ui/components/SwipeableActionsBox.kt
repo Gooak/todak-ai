@@ -20,13 +20,14 @@ import kotlin.math.roundToInt
 
 @Composable
 fun SwipeableActionsBox(
+    key : Any?,
     modifier: Modifier = Modifier,
     endActions: @Composable (() -> Unit),
     content: @Composable (() -> Unit)
 ) {
     val scope = rememberCoroutineScope()
-    val offsetX = remember { Animatable(0f) }
-    var actionWidth by remember { mutableFloatStateOf(0f) }
+    val offsetX = remember(key) { Animatable(0f) }
+    var actionWidth by remember(key) { mutableFloatStateOf(0f) }
 
     Box(
         modifier = modifier.pointerInput(Unit) {

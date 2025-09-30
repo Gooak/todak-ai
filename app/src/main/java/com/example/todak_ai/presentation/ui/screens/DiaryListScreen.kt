@@ -97,35 +97,37 @@ fun DiaryListScreen(navController: NavController) {
                 }
             } else {
                 items(diaryList.size) { index ->
-                    SwipeableActionsBox(endActions = {
-                        Button(
-                            onClick = { diaryViewModel.deleteDiary(diaryList[index]) },
-                            colors = ButtonDefaults.buttonColors(
-                                containerColor = MaterialTheme.colorScheme.errorContainer
-                            ),
-                            shape = MaterialTheme.shapes.small,
-                            modifier = Modifier.padding(top = 10.dp)
-                        ) {
-                            Column {
-                                Icon(
-                                    Icons.Default.Delete,
-                                    contentDescription = "삭제",
-                                    tint = MaterialTheme.colorScheme.onErrorContainer
-                                )
-                                Text(
-                                    text = "삭제",
-                                    color = MaterialTheme.colorScheme.onErrorContainer,
-                                    style = MaterialTheme.typography.labelSmall
-                                )
+                    SwipeableActionsBox(
+                        key = diaryList[index].diaryId,
+                        endActions = {
+                            Button(
+                                onClick = { diaryViewModel.deleteDiary(diaryList[index]) },
+                                colors = ButtonDefaults.buttonColors(
+                                    containerColor = MaterialTheme.colorScheme.errorContainer
+                                ),
+                                shape = MaterialTheme.shapes.small,
+                                modifier = Modifier.padding(top = 10.dp)
+                            ) {
+                                Column {
+                                    Icon(
+                                        Icons.Default.Delete,
+                                        contentDescription = "삭제",
+                                        tint = MaterialTheme.colorScheme.onErrorContainer
+                                    )
+                                    Text(
+                                        text = "삭제",
+                                        color = MaterialTheme.colorScheme.onErrorContainer,
+                                        style = MaterialTheme.typography.labelSmall
+                                    )
 
+                                }
                             }
-                        }
-                    }, content = {
-                        ExpansionTail(
-                            diary = diaryList[index],
-                        )
-                        Spacer(modifier = Modifier.height(8.dp))
-                    })
+                        }, content = {
+                            ExpansionTail(
+                                diary = diaryList[index],
+                            )
+                            Spacer(modifier = Modifier.height(8.dp))
+                        })
                     Spacer(modifier = Modifier.height(8.dp)) // 아이템 간 간격
                 }
             }
@@ -145,12 +147,13 @@ fun ExpansionTail(diary: DiaryModel) {
         shape = MaterialTheme.shapes.medium
     ) {
         Column {
-            Row(modifier = Modifier
-                .fillMaxWidth()
-                .clickable {
-                    diary.isExpanded.value = !diary.isExpanded.value
-                }
-                .padding(vertical = 12.dp, horizontal = 16.dp),
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .clickable {
+                        diary.isExpanded.value = !diary.isExpanded.value
+                    }
+                    .padding(vertical = 12.dp, horizontal = 16.dp),
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.SpaceBetween) {
                 Column(Modifier.weight(1f)) {
