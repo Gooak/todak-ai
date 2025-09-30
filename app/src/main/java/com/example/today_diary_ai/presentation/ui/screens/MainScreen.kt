@@ -1,5 +1,6 @@
 package com.example.today_diary_ai.presentation.ui.screens
 
+import StatisticsScreen
 import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.compose.foundation.background
@@ -54,7 +55,7 @@ fun MainScreen() {
                 }
             }
             composable(BottomMenus.STATISTICS.name) { backStackEntry ->
-                SettingScreen()
+                StatisticsScreen()
             }
         }
     }

@@ -4,7 +4,6 @@ import android.content.Context
 import androidx.room.Room
 import com.example.today_diary_ai.data.local.AppDatabase
 import com.example.today_diary_ai.data.local.Converters
-import com.example.today_diary_ai.data.local.dao.SettingDao
 import com.example.today_diary_ai.data.local.dao.DiaryDao
 import dagger.Module
 import dagger.Provides
@@ -36,12 +35,6 @@ object DatabaseModule {
             .addTypeConverter(converters)
             .build()
     }
-
-    @Provides
-    fun provideSettingDao(database: AppDatabase): SettingDao {
-        return database.settingDao()
-    }
-
 
     @Provides
     fun provideSoundLogDao(db: AppDatabase): DiaryDao {

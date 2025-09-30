@@ -94,14 +94,15 @@ fun DiaryAddScreen(navController: NavHostController, parentRoute : String) {
     val titleText : String by diaryViewModel.titleText.collectAsState()
     val contentText : String by diaryViewModel.contentText.collectAsState()
 
-    var isLoading by remember { mutableStateOf(false) }
-    var aiResponse by remember { mutableStateOf("") }
+    val isLoadingAi: Boolean by diaryViewModel.isLoadingAi.collectAsState()
+    val geminiResponse: String by diaryViewModel.geminiResponse.collectAsState()
+
     var displayedText by remember { mutableStateOf("") }
 
-    LaunchedEffect(aiResponse) {
-        if (aiResponse.isNotEmpty()) {
-            aiResponse.forEachIndexed { index, _ ->
-                displayedText = aiResponse.substring(0, index + 1)
+    LaunchedEffect(geminiResponse) {
+        if (geminiResponse.isNotEmpty()) {
+            geminiResponse.forEachIndexed { index, _ ->
+                displayedText = geminiResponse.substring(0, index + 1)
                 delay(50L)
             }
         }
@@ -109,11 +110,11 @@ fun DiaryAddScreen(navController: NavHostController, parentRoute : String) {
 
     Scaffold(
         floatingActionButton = {
-            if (aiResponse.isNotEmpty() && contentText.isNotEmpty())
+            if (geminiResponse.isNotEmpty() && contentText.isNotEmpty())
                 FloatingActionButton(
                     onClick = {
                         coroutineScope.launch {
-                            diaryViewModel.insertDiary(diaryDate, aiResponse, selectedWeather, selectedMood)
+                            diaryViewModel.insertDiary(diaryDate, geminiResponse, selectedWeather, selectedMood)
                             navController.popBackStack()
                         }
                     }
@@ -241,19 +242,14 @@ fun DiaryAddScreen(navController: NavHostController, parentRoute : String) {
 
             Spacer(modifier = Modifier.height(25.dp))
 
-            AnimatedVisibility(visible = contentText.isNotBlank() && titleText.isNotBlank() && !isLoading && aiResponse.isEmpty()) {
+            AnimatedVisibility(visible = contentText.isNotBlank() && titleText.isNotBlank() && !isLoadingAi && geminiResponse.isEmpty()) {
                 // 버튼 스타일 변경
                 FilledTonalButton(
                     onClick = {
                         coroutineScope.launch {
                             keyboardController?.hide()
                             focusManager.clearFocus()
-                            isLoading = true
-                            aiResponse = ""
-                            delay(2000)
-                            aiResponse =
-                                "오늘 정말 힘든 하루를 보내셨군요. 그래도 포기하지 않고 하루를 잘 마무리하신 당신이 정말 자랑스러워요. 스스로를 충분히 칭찬해주세요."
-                            isLoading = false
+                            diaryViewModel.requestAiAnswer(selectedWeather, selectedMood)
                         }
                     },
                     modifier = Modifier.fillMaxWidth(),
@@ -263,7 +259,7 @@ fun DiaryAddScreen(navController: NavHostController, parentRoute : String) {
                 }
             }
 
-            if (isLoading) {
+            if (isLoadingAi) {
                 Row(
                     modifier = Modifier
                         .padding(all = 20.dp)
@@ -275,7 +271,7 @@ fun DiaryAddScreen(navController: NavHostController, parentRoute : String) {
             }
 
             AnimatedVisibility(
-                visible = aiResponse.isNotBlank(),
+                visible = geminiResponse.isNotBlank(),
                 enter = fadeIn() + slideInVertically { it / 4 },
                 exit = fadeOut() + slideOutVertically { it / 4 }
             ) {
