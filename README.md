@@ -8,9 +8,13 @@
 
 ## 📸 주요 화면 (Screenshots)
 
-| 일기 목록 | 일기 작성 | 통계 화면 | 시연 화면 |
-| :---: | :---: | :---: | :---: |
-| <img width="216" height="384" alt="Screenshot_20250930_235754" src="https://github.com/user-attachments/assets/9bab24d7-af3a-423a-9ab8-9ae0923268c7" /> | <img width="216" height="384" alt="Screenshot_20250930_235834" src="https://github.com/user-attachments/assets/6beae41e-b108-4657-8284-fa12d45fc97c" /> | <img width="216" height="384" alt="Screenshot_20250930_235820" src="https://github.com/user-attachments/assets/c7823844-24ad-4fea-a6ac-10506a9ade15" /> | ![recording (1)](https://github.com/user-attachments/assets/462ec04d-6ace-462e-bffd-86ca5cd9e43e) |
+| 일기 목록 | 일기 작성 | 통계 화면 |
+| :---: | :---: | :---: | 
+| <img width="216" height="384" alt="Screenshot_20250930_235754" src="https://github.com/user-attachments/assets/9bab24d7-af3a-423a-9ab8-9ae0923268c7" /> | <img width="216" height="384" alt="Screenshot_20250930_235834" src="https://github.com/user-attachments/assets/6beae41e-b108-4657-8284-fa12d45fc97c" /> | <img width="216" height="384" alt="Screenshot_20250930_235820" src="https://github.com/user-attachments/assets/c7823844-24ad-4fea-a6ac-10506a9ade15" />
+
+
+https://github.com/user-attachments/assets/2342ba43-e063-4f82-a9ab-577b498d40ea
+
 
 ## ✨ 주요 기능 (Features)
 
