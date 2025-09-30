@@ -55,7 +55,7 @@
 ```
 .
 └── app/src/main/java
-└── com/example/yourapp
+└── com/example/today_diary_ai
 ├── 📂 data
 │   ├── 📂 repository  (Repository 구현체)
 │   ├── 📂 local       (Room DB, Dao, Entity 등)
