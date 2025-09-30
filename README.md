@@ -10,8 +10,7 @@
 
 | 일기 목록 | 일기 작성 |통계 화면 |
 | :---: | :---: | :---: |
-| <img width="216" height="384" alt="Screenshot_20250930_235754" src="https://github.com/user-attachments/assets/9bab24d7-af3a-423a-9ab8-9ae0923268c7" /> | <img width="216" height="384" alt="Screenshot_20250930_235820" src="https://github.com/user-attachments/assets/5256fec4-da60-4173-b4eb-76a7c55baee3" /> | <img width="216" height="384" alt="Screenshot_20250930_235820" src="https://github.com/user-attachments/assets/c7823844-24ad-4fea-a6ac-10506a9ade15" /> |
-
+| <img width="216" height="384" alt="Screenshot_20250930_235754" src="https://github.com/user-attachments/assets/9bab24d7-af3a-423a-9ab8-9ae0923268c7" /> | <img width="216" height="384" alt="Screenshot_20250930_235834" src="https://github.com/user-attachments/assets/6beae41e-b108-4657-8284-fa12d45fc97c" /> | <img width="216" height="384" alt="Screenshot_20250930_235820" src="https://github.com/user-attachments/assets/c7823844-24ad-4fea-a6ac-10506a9ade15" /> |
 
 ---
 
