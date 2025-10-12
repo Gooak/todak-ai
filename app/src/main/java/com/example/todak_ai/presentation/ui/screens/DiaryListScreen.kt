@@ -45,7 +45,6 @@ import com.example.todak_ai.domain.model.DiaryModel
 import com.example.todak_ai.presentation.viewmodel.DiaryListViewModel
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.remember
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
