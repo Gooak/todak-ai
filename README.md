@@ -83,3 +83,9 @@ https://github.com/user-attachments/assets/201efcf3-3f5c-4ed2-a8b2-067e28d58d80
 │
 └── 📂 di               (Hilt 의존성 주입 모듈)
 ```
+
+---
+
+본 프로젝트는 Jetpack Compose, Hilt, Coroutines, Clean Architecture 등 Google이 권장하는 최신 Android 기술 스택과 아키텍처를 학습하고, 이를 적용하는 전체 개발 프로세스를 기록하기 위해 제작되었습니다.
+
+따라서 실제 사용자에게 서비스를 제공하는 상용 앱으로 배포되지는 않았습니다.
